@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      fetch('fibonacci.gc.wasm')
+        .then(r => r.arrayBuffer())
+        .then(r => WebAssembly.instantiate(r))
+        .then(wasm_module => {
+            alert(`Fibonacci ${wasm_module.instance.exports.fib(10)}`);
+        });
+    </script>
+  </head>
+  <body></body>
+</html>
